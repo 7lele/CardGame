@@ -27,11 +27,13 @@ Chaque carte a ses propres attributs et compétences uniques. Plus vous progress
 ---
 
 ## 📋 **Roadmap**
+```
 - 1.0 - [07.01.25 / 10.01.25]   ----> Les dates ne sont pas contractuelles
 
    ┗ - 1.1 - [11.01.25 / 15.01.25] 
 
      ┗ - 2.0 - [16.01.25 / 25.01.25]
+``` 
 
 ### **Version 1.0** (Complétée ❌)
 - [x] Connexion avec Firebase Auth
