@@ -84,6 +84,6 @@ Merci à tous les contributeurs et passionnés de jeux de cartes pour leur inspi
 ---
 
 ## 🏆 **Badges**
-![GitHub Repo stars](https://img.shields.io/github/stars/username/NAMEGOESHERE?style=social)  
-![GitHub forks](https://img.shields.io/github/forks/username/NAMEGOESHERE?style=social)  
-![GitHub issues](https://img.shields.io/github/issues/username/NAMEGOESHERE)
+![GitHub Repo stars](https://img.shields.io/github/stars/username/CardGame?style=social)  
+![GitHub forks](https://img.shields.io/github/forks/username/CardGame?style=social)  
+![GitHub issues](https://img.shields.io/github/issues/username/CardGame)
