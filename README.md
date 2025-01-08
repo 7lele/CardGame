@@ -1,7 +1,7 @@
 # 🎴 **NAMEGOESHERE**  
-![Version](https://img.shields.io/badge/version-1.0.0-blue)  
-![License](https://img.shields.io/badge/license-MIT-green)  
-![Open Source](https://img.shields.io/badge/open--source-yes-brightgreen)  
+![Version](https://img.shields.io/badge/version-1.0.0-blue)  ![License](https://img.shields.io/badge/license-MIT-green)  ![Open Source](https://img.shields.io/badge/open--source-yes-brightgreen)  
+
+
 
 **NAMEGOESHERE** est un jeu de cartes innovant où les joueurs collectionnent, échangent et affrontent leurs adversaires dans un univers fascinant. Ce projet est entièrement **open source** et conçu pour être amusant, stratégique et accessible à tous. 🚀
 
