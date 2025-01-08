@@ -1,14 +1,14 @@
-# 🎴 **NAMEGOESHERE**  
+# 🎴 **Fategic**  
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)  ![License](https://img.shields.io/badge/license-MIT-green)  ![Open Source](https://img.shields.io/badge/open--source-yes-brightgreen)  
 
 
 
-**NAMEGOESHERE** est un jeu de cartes innovant où les joueurs collectionnent, échangent et affrontent leurs adversaires dans un univers fascinant. Ce projet est entièrement **open source** et conçu pour être amusant, stratégique et accessible à tous. 🚀
+**Fategic** est un jeu de cartes innovant où les joueurs collectionnent, échangent et affrontent leurs adversaires dans un univers fascinant. Ce projet est entièrement **open source** et conçu pour être amusant, stratégique et accessible à tous. 🚀
 
 ---
 
 ## 📖 **Description**
-Bienvenue dans **NAMEGOESHERE**, le jeu où la collection et la stratégie se rencontrent !  
+Bienvenue dans **Fategic**, le jeu où la collection et la stratégie se rencontrent !  
 - 📦 **Collectez des cartes** : Obtenez des boosters pour construire votre collection.  
 - 🏪 **Marché** : Achetez et vendez vos cartes pour optimiser votre deck.  
 - ⚔️ **Jouez en ligne** : Préparez-vous à affronter d'autres joueurs et prouvez que vous êtes le meilleur stratège !  
@@ -19,7 +19,8 @@ Chaque carte a ses propres attributs et compétences uniques. Plus vous progress
 
 ## 🎮 **Fonctionnalités**  
 - 🔓 **Création de compte et connexion** : Connectez-vous avec un compte Google pour suivre votre progression.
-- 💰 **Gestion des ressources** : Commencez avec 100 crédits et accumulez des pièces pour acheter des cartes.
+- 🪙 **Credits** : Commencez avec 100 crédits et accumulez des pièces pour acheter des cartes.
+- 💰 **Coins** :échangez 1000 **Crédits** contre 1 **Coin** Pour acheter des cartes plus rares.
 - 📊 **Deck personnalisé** : Organisez vos cartes pour maximiser vos chances de victoire.
 - 🛒 **Marché des joueurs** : Achetez, vendez et échangez des cartes pour enrichir votre collection.
 
@@ -47,7 +48,7 @@ Chaque carte a ses propres attributs et compétences uniques. Plus vous progress
 ## 💻 **Installation**
 1. Clonez le projet :
    ```bash
-   git clone https://github.com/username/NAMEGOESHERE.git```
+   git clone https://github.com/7lele/CardGame.git```
 2. Installez les dépendances :  
     ```npm install``` 
 
