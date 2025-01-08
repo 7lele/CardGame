@@ -47,4 +47,43 @@ Chaque carte a ses propres attributs et compétences uniques. Plus vous progress
 ## 💻 **Installation**
 1. Clonez le projet :
    ```bash
-   git clone https://github.com/username/NAMEGOESHERE.git
+   git clone https://github.com/username/NAMEGOESHERE.git```
+2. Installez les dépendances :  
+    ```npm install``` 
+
+3. Configurez Firebase avec vos clés dans le fichier `index.html`.  
+
+4. Lancez le projet :  
+    ```npm start  ``` 
+
+---
+
+## 🛠️ **Technologies utilisées**
+- **HTML5/CSS3** pour l’interface utilisateur.  
+- **JavaScript (ES6)** pour la logique du jeu.  
+- **Firebase** pour l’authentification et la base de données en temps réel.  
+
+---
+
+
+## 🧩 **Comment contribuer**
+1. Forkez le projet.
+2. Créez une branche : `feature/nom-fonctionnalite`.  
+3. Ouvrez une pull request.  
+
+---
+
+## 📄 **Licence**
+Ce projet est sous licence MIT. Consultez le fichier [LICENSE](LICENSE) pour plus d’informations.
+
+---
+
+## ❤️ **Remerciements**
+Merci à tous les contributeurs et passionnés de jeux de cartes pour leur inspiration !
+
+---
+
+## 🏆 **Badges**
+![GitHub Repo stars](https://img.shields.io/github/stars/username/NAMEGOESHERE?style=social)  
+![GitHub forks](https://img.shields.io/github/forks/username/NAMEGOESHERE?style=social)  
+![GitHub issues](https://img.shields.io/github/issues/username/NAMEGOESHERE)
