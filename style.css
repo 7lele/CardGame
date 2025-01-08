@@ -39,6 +39,7 @@ body {
 }
 
 .Home {
+
     font-family: "Manrope", sans-serif;
     color: #FFFFFF;
     padding: 15px 15px 50px;
@@ -54,6 +55,15 @@ body {
 
 /* Responsive styles */
 @media (max-width: 768px) {
+    .Deck{
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 40px;
+        row-gap: 5px;
+        margin: 30px;
+    }
+
+
+
     .navbar {
         grid-template-columns: repeat(2, 1fr);
         column-gap: 20px;
@@ -71,6 +81,19 @@ body {
 }
 
 @media (max-width: 400px) {
+
+    .Deck{
+        overflow-x: scroll;
+        font-family: "Manrope", sans-serif;
+        color: #FFFFFF;
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 40px;
+        row-gap: 5px;
+        margin: 30px;
+    }
+
+
     .navbar {
         grid-template-columns: 1fr;
         column-gap: 10px;
@@ -89,6 +112,10 @@ body {
 
     .Description {
         font-size: 14px;
+    }
+
+    .home {
+        padding: 100px;
     }
 
 
@@ -159,6 +186,31 @@ body {
     justify-content: center;
 }
 .Deck{
+    height: 320px;
     font-family: "Manrope", sans-serif;
+    overflow-y: scroll;
     color: #FFFFFF;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    column-gap: 30px;
+    row-gap: 30px;
+    margin: 30px;
+}
+
+.Card{
+
+    border-radius: 20px;
+
+    width: 180px;
+    height: 300px;
+    border: #FFFFFF 1px solid;
+}
+::-webkit-scrollbar {
+    -webkit-appearance: scrollbargripper-horizontal;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }

@@ -26,7 +26,7 @@
     </div>
 </div>
 <div class="Deck">
-    work in progress
+
 </div>
 <script type="module">
     // Import Firebase SDK
@@ -59,6 +59,7 @@
     function UpdateGameData() {
         if (currentUser) {
             const userRef = ref(db, `Users/${currentUser.displayName}`);
+            const deckContainer = document.querySelector(".Deck");
 
             onValue(userRef, (snapshot) => {
                 if (snapshot.exists()) {
@@ -66,11 +67,20 @@
                     Credits.innerText = `Credits: ${data.Credits}`;
                     Coins.innerText = `Coins: ${data.Coins}`;
                     CardsNumberPossessed.innerText = `Cards: ${data.Cards.length}`;
+
+                    // Clear previous cards to prevent duplication
+                    deckContainer.innerHTML = "";
+
+                    // Create and append each card
+                    data.Cards.forEach(cardName => {
+                        const card = document.createElement("div");
+                        card.classList.add("Card");
+                        card.innerText = cardName; // Use cardName if it's descriptive
+                        deckContainer.appendChild(card); // Append to the Deck container
+                    });
                 } else {
                     console.log("No data available for this user.");
                 }
-            }, {
-                onlyOnce: true  // This fetches the data once. Remove this if continuous updates are needed.
             });
         } else {
             console.log("No user is currently signed in.");
@@ -90,7 +100,7 @@
                 set(userRef, {
                     Coins: 0,
                     Credits: 100,
-                    Cards: [],
+                    Cards: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52],
                     Mail: user.email
                 })
                     .then(() => {
@@ -143,6 +153,9 @@
                 console.error("Sign up failed", error);
             });
     });
+
+
+
 </script>
 
 <script src="index.js"></script>
