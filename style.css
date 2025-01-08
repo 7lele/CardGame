@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css?family=Manrope:700|Manrope:400');
+
+.navbar {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    column-gap: 40px;
+    row-gap: 5px;
+    background: rgb(94, 6, 81);
+    background: linear-gradient(90deg, rgba(94, 6, 81, 1) 0%, rgba(6, 66, 94, 1) 35%, rgba(0, 0, 0, 1) 68%, rgba(0, 0, 0, 1) 84%, rgba(0, 0, 0, 1) 93%);
+    padding: 10px;
+    color: #FFF;
+    font-family: "Manrope", sans-serif;
+    border-bottom: lightgrey 1px solid;
+    animation-duration: 2s;
+}
+
+body {
+    margin: 0;
+    background-color: black;
+}
+
+
+.navButtons:hover {
+    color: lightgray;
+    cursor: pointer;
+}
+
+.navButton:active {
+    border: lightgray 1px solid;
+}
+
+.TitleHome {
+    font-size: 21px;
+    text-align: center;
+    font-family: "Manrope", sans-serif;
+    color: #FFFFFF;
+
+}
+
+.Home {
+    font-family: "Manrope", sans-serif;
+    color: #FFFFFF;
+    padding: 15px 15px 50px;
+    background: rgb(94, 6, 81);
+    background: linear-gradient(90deg, rgba(94, 6, 81, 1) 0%, rgba(6, 66, 94, 1) 35%, rgba(0, 0, 0, 1) 68%, rgba(0, 0, 0, 1) 84%, rgba(0, 0, 0, 1) 93%);
+    border-bottom: lightgrey 1px solid;
+}
+
+.Description {
+    padding-top: 20px;
+    font-size: 18px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navbar {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 20px;
+        row-gap: 10px;
+        padding: 8px;
+    }
+
+    .TitleHome {
+        font-size: 18px;
+    }
+
+    .Description {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    .navbar {
+        grid-template-columns: 1fr;
+        column-gap: 10px;
+        row-gap: 8px;
+        padding: 5px;
+    }
+
+    .navButtons {
+        text-align: center;
+        padding: 5px;
+    }
+
+    .TitleHome {
+        font-size: 16px;
+    }
+
+    .Description {
+        font-size: 14px;
+    }
+
+
+}
+#login-button {
+    width: 100px;
+    font-size: 16px;
+    margin-top: 20px;
+    padding: 10px 20px;
+
+    background: rgba(18, 164, 226, 0.17);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.4px);
+    -webkit-backdrop-filter: blur(5.4px);
+    border: 1px solid rgba(18, 164, 226, 0.26);
+    color: lightblue;
+
+    transition-duration: 500ms;
+}
+
+#signup-button {
+    width: 100px;
+
+    font-size: 16px;
+    margin-top: 20px;
+    padding: 10px 20px;
+
+
+    background: rgba(226, 92, 18, 0.17);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.4px);
+    -webkit-backdrop-filter: blur(5.4px);
+    border: 1px solid rgba(226, 92, 18, 0.26);
+    color: chocolate;
+
+    transition-duration: 500ms;
+}
+
+#signup-button:hover{
+    background: rgba(226, 92, 18, 0.30);
+}
+#login-button:hover{
+    background: rgba(18, 164, 226, 0.30);
+}
+
+#signup-button:active{
+    background: rgba(226, 92, 18, 0.80);
+}
+#login-button:active{
+    background: rgba(18, 164, 226, 0.80);
+}
+
+.logo{
+    height: 28px;
+    width: 28px;
+    border-radius: 10px;
+}
+
+.vars{
+    color: lightblue;
+}
+
+.LogsButtons{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}

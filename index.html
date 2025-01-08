@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="navbar">
+    <div><a class="navButtons">Home</a></div>
+    <div><a class="navButtons">Deck</a></div>
+    <div><a class="navButtons">Market</a></div>
+    <div><a class="navButtons">About</a></div>
+    <img class="logo" id="userlogo" src="/public/blank.png" alt="usericon">
+    <div class="vars" id="Credits">Credits: 100</div>
+    <div class="vars" id="Coins">Coins: 0</div>
+    <div class="vars" id="CardsNumberPossessed">Cards: 0</div>
+</div>
+<div class="Home">
+    <div class="TitleHome"><strong>Welcome to NAMEGOESHERE !</strong></div>
+    <div class="Description">The new card game by 7lele ! Completely open source on my GitHub !<br>Collect the cards by buying boosters and sell them on the shop.<br> Before all create an account !</div>
+
+    <div class="LogsButtons">
+        <button id="login-button">Login</button>
+        <button id="signup-button">Sign up</button>
+    </div>
+
+
+</div>
+<script type="module">
+    // Import Firebase SDK
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+    import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDyU4Pfk10o50ncONH0nfmB2HgMkvs_05w",
+        authDomain: "potatest-9277e.firebaseapp.com",
+        databaseURL: "https://potatest-9277e-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "potatest-9277e",
+        storageBucket: "potatest-9277e.firebasestorage.app",
+        messagingSenderId: "790607282297",
+        appId: "1:790607282297:web:3774ee24718361819194a8"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
+    const db = getDatabase(app);
+
+    const loginButton = document.getElementById("login-button");
+    const signupButton = document.getElementById("signup-button");
+    const Credits = document.getElementById("Credits");
+    const Coins = document.getElementById("Coins");
+    const CardsNumberPossessed = document.getElementById("CardsNumberPossessed");
+    const logo = document.getElementById("userlogo");
+    function UpdateGameData() {
+        if (currentUser) {
+            const userRef = ref(db, `Users/${currentUser.displayName}`);
+
+            onValue(userRef, (snapshot) => {
+                if (snapshot.exists()) {
+                    const data = snapshot.val();
+                    Credits.innerText = `Credits: ${data.Credits}`;
+                    Coins.innerText = `Coins: ${data.Coins}`;
+                    CardsNumberPossessed.innerText = `Cards: ${data.Cards.length}`;
+                } else {
+                    console.log("No data available for this user.");
+                }
+            }, {
+                onlyOnce: true  // This fetches the data once. Remove this if continuous updates are needed.
+            });
+        } else {
+            console.log("No user is currently signed in.");
+        }
+    }
+
+
+    let currentUser = null;
+
+    const createUserInDatabase = (user) => {
+        const userRef = ref(db, `Users/${user.displayName}`);
+
+        onValue(userRef, (snapshot) => {
+            if (snapshot.exists()) {
+                console.log("User already exists in the database.");
+            } else {
+                set(userRef, {
+                    Coins: 0,
+                    Credits: 100,
+                    Cards: [],
+                    Mail: user.email
+                })
+                    .then(() => {
+                        console.log("User data created successfully");
+                    })
+                    .catch((error) => {
+                        console.error("Error creating user data:", error);
+                    });
+            }
+        }, {
+            onlyOnce: true
+        });
+    };
+
+
+    loginButton.addEventListener("click", () => {
+        signInWithPopup(auth, provider)
+            .then(result => {
+                currentUser = result.user;
+                alert(`Logged in as ${currentUser.displayName}`);
+                createUserInDatabase(currentUser);
+                logo.style.display = "flex";
+                loginButton.style.display = "none";
+                signupButton.style.display = "none";
+                UpdateGameData();
+                Coins.style.display = "flex";
+                Credits.style.display = "flex";
+                CardsNumberPossessed.style.display = "flex";
+            })
+            .catch(error => {
+                console.error("Login failed", error);
+            });
+    });
+
+    signupButton.addEventListener("click", () => {
+        signInWithPopup(auth, provider)
+            .then(result => {
+                currentUser = result.user;
+                alert(`Signed up as ${currentUser.displayName}`);
+                createUserInDatabase(currentUser);
+                logo.style.display = "flex";
+                loginButton.style.display = "none";
+                signupButton.style.display = "none";
+                UpdateGameData();
+                Coins.style.display = "flex";
+                Credits.style.display = "flex";
+                CardsNumberPossessed.style.display = "flex";
+            })
+            .catch(error => {
+                console.error("Sign up failed", error);
+            });
+    });
+</script>
+
+<script src="index.js"></script>
+    </body>
+</html>
