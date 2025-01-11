@@ -28,6 +28,21 @@
 <div class="Deck">
 
 </div>
+<div class="Market">
+    <h2 class="MarketTitle">Market</h2>
+    <div class="SellCard">
+        <select id="cardSelect">
+            <!-- Les cartes disponibles seront ajoutées ici dynamiquement -->
+        </select>
+        <input type="number" id="priceInput" placeholder="Set price">
+        <button id="sellButton">Sell Card</button>
+    </div>
+    <div class="MarketList">
+        <h3>Cards for Sale</h3>
+        <div id="marketContainer"></div>
+    </div>
+</div>
+
 <script type="module">
     // Import Firebase SDK
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
@@ -60,6 +75,8 @@
         if (currentUser) {
             const userRef = ref(db, `Users/${currentUser.displayName}`);
             const deckContainer = document.querySelector(".Deck");
+            const cardSelect = document.getElementById("cardSelect");
+            const marketContainer = document.getElementById("marketContainer");
 
             onValue(userRef, (snapshot) => {
                 if (snapshot.exists()) {
@@ -68,24 +85,74 @@
                     Coins.innerText = `Coins: ${data.Coins}`;
                     CardsNumberPossessed.innerText = `Cards: ${data.Cards.length}`;
 
-                    // Clear previous cards to prevent duplication
                     deckContainer.innerHTML = "";
+                    cardSelect.innerHTML = ""; // Clear cardSelect options
 
-                    // Create and append each card
-                    data.Cards.forEach(cardName => {
-                        const card = document.createElement("div");
-                        card.classList.add("Card");
-                        card.innerText = cardName; // Use cardName if it's descriptive
-                        deckContainer.appendChild(card); // Append to the Deck container
+                    data.Cards.forEach(cardId => {
+                        const cardNumber = cardId.toString().padStart(2, '0');
+                        const cardImage = document.createElement("img");
+                        cardImage.classList.add("CardImage");
+                        cardImage.src = `/public/${cardNumber}.png`;
+                        cardImage.alt = `Card ${cardNumber}`;
+                        deckContainer.appendChild(cardImage);
+
+                        const option = document.createElement("option");
+                        option.value = cardId;
+                        option.text = `Card ${cardNumber}`;
+                        cardSelect.appendChild(option);
                     });
-                } else {
-                    console.log("No data available for this user.");
+
+                    // Load market cards
+                    const marketRef = ref(db, "Market");
+                    marketContainer.innerHTML = "";
+                    onValue(marketRef, (snapshot) => {
+                        if (snapshot.exists()) {
+                            const marketData = snapshot.val();
+                            Object.entries(marketData).forEach(([seller, cards]) => {
+                                Object.entries(cards).forEach(([key, card]) => {
+                                    const cardNum = card.id.toString().padStart(2, '0');
+                                    const marketItem = document.createElement("div");
+                                    marketItem.classList.add("CardImage");
+                                    marketItem.innerHTML = `
+                    <img src="/public/${cardNum}.png" alt="Card ${cardNum}">
+                    <p>Seller: ${seller}</p>
+                    <p>Price: ${card.price}</p>
+                `;
+                                    marketContainer.appendChild(marketItem);
+                                });
+                            });
+                        } else {
+                            marketContainer.innerText = "No cards for sale.";
+                        }
+                    });
+
                 }
             });
-        } else {
-            console.log("No user is currently signed in.");
         }
     }
+
+    const sellButton = document.getElementById("sellButton");
+    sellButton.addEventListener("click", () => {
+        const selectedCard = document.getElementById("cardSelect").value;
+        const price = document.getElementById("priceInput").value;
+        if (selectedCard && price > 0) {
+            const marketRef = ref(db, `Market/${currentUser.displayName}`);
+            const newCardKey = Date.now().toString(); // Unique key for the card
+            const newCardRef = ref(db, `Market/${currentUser.displayName}/${newCardKey}`);
+
+            set(newCardRef, {
+                id: selectedCard,
+                price: price
+            })
+                .then(() => alert(`Card ${selectedCard} listed for ${price} credits.`))
+                .catch(error => console.error("Error listing card:", error));
+
+        } else {
+            alert("Select a card and set a valid price.");
+        }
+    });
+
+
 
 
     let currentUser = null;

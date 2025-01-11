@@ -1,5 +1,5 @@
 # 🎴 **Fategic**  
-![Version](https://img.shields.io/badge/version-1.0.0-blue)  ![License](https://img.shields.io/badge/license-MIT-green)  ![Open Source](https://img.shields.io/badge/open--source-yes-brightgreen)  
+![Version](https://img.shields.io/badge/version-1.0.1-purple)  ![License](https://img.shields.io/badge/license-MIT-darkred)  ![Open Source](https://img.shields.io/badge/open--source-yes-red)  ![License](https://img.shields.io/badge/Current_release-1.0.1--InDev-orange?style=flat?logo=subversion&logoColor=red&logoSize=10&link=github.com%2F7lele) ![License](https://img.shields.io/badge/Author-7lele-yellow)
 
 
 
@@ -28,9 +28,9 @@ Chaque carte a ses propres attributs et compétences uniques. Plus vous progress
 
 ## 📋 **Roadmap**
 ```
-- 1.0 - [07.01.25 / 10.01.25]   ----> Les dates ne sont pas contractuelles
-   ┗ - 1.1 - [11.01.25 / 15.01.25] 
-        ┗ - 2.0 - [16.01.25 / 25.01.25]
+- 1.0 - [07.01.25 / 15.01.25]   ----> Les dates ne sont pas contractuelles
+   ┗ - 1.1 - [15.01.25 / 23.01.25] 
+        ┗ - 2.0 - [25.01.25 / 12.02.25]
 ``` 
 
 ### **Version 1.0** (Complétée ❌)
